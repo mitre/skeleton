@@ -1,49 +1,27 @@
 <link rel="stylesheet" href="/skeleton/css/skeleton.css">
 <script src="/skeleton/js/skeleton.js"></script>
 
-<div id="skeleton-section" class="section-profile">
+<div id="skeleton-section" class="section-profile" style="">
     <!--    this is the DIV for the left sidebar    -->
-    <div class="row" style="background-image: url('/skeleton/img/skeleton.jpg'); background-position:right bottom;">
+    <div class="row" style="height: 375px;background-image: url('/skeleton/img/skeleton.jpg'); background-position:right bottom;">
         <div class="topleft duk-icon"><img onclick="removeSection('skeleton-section')" src="/gui/img/x.png"></div>
         <div class="column section-border" style="flex:25%;text-align:left;padding:15px;">
-            <h1 style="font-size:70px;margin-top:-20px;">Skeleton</h1>
-            <h2 style="margin-top:-50px">plugin bones</h2>
-            <p>
-                Skeleton aspires to be a template for building new plugins on.
-                It provides a simple gui and some hooks back to the
-                core server as examples for copy/reuse.
+            <h1 style="font-size:70px;margin-top:-20px;">{{name}}</h1>
+            <p style="margin-top:-20px;">
+                {{description}}
             </p>
-            <div class="toggle">
-                <label class="switch">
-                    <input type="checkbox" id="toggleViewableButtons" onchange="toggleButtons()">
-                    <div class="slider round">
-                        <span class="on">set 2</span><span class="off">set 1</span>
-                    </div>
-                </label>
-            </div>
-            <br><br>
-            <div id="set1">
-                <br><br>
-                <button id="doSomething" type="button" class="button-success atomic-button" style="margin-top:0;"
-                        onclick="doSomething()">do something</button>
-            </div>
-            <div id="set2" style="display:none;">
-                <select id="initialOptions" style="margin-top:-15px;" onchange="enableButton()">
-                    <option value="" disabled selected>Some options</option>
-                    {% for p in initial_data %}
-                        <option value="{{ p }}">{{ p }}</option>
-                    {% endfor %}}
-                </select>
-                <br><br>
-                <button id="uploadFile" type="button" class="button-notready atomic-button" style="margin-top:0;"
-                        onclick="uploadFile()">upload file</button>
-                <input id="fileInput" type="file" name="name" style="display: none" />
+            <!-- left section -->
+            <div id="sampleDiv">
+                <button id="sampleButton" type="button" class="button-success atomic-button" style="margin-top:0;"
+                        onclick="sampleFunction()">Click me!</button>
             </div>
         </div>
-        <!--    this is the DIV for the right section    -->
+
+        <!-- right section -->
         <div class="column" style="flex:75%">
             <label for="dataDisplay">Output</label><br>
-            <textarea id="dataDisplay" class="column log-box" rows="4"></textarea>
+            <textarea id="dataDisplay" class="column log-box" rows="10"
+            style="background-color: black; opacity: .5; width: 100%"></textarea>
         </div>
     </div>
 </div>

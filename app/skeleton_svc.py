@@ -7,9 +7,7 @@ class SkeletonService:
         self.file_svc = services.get('file_svc')
         self.log = logging.getLogger('skeleton_svc')
 
-    async def something(self):
-        return 'I did something'
+    async def foo(self):
+        return 'bar'
 
-    async def do_file_thing(self, filename, option):
-        _, contents = await self.file_svc.read_file(filename, location='uploads')
-        self.log.debug(contents)
+    # Add functions here that call core services
