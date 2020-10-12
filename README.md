@@ -2,6 +2,8 @@
 
 Skeleton is a CALDERA plugin template
 
-Copy skeleton and change it to build out your own plugin.
+Run the `plugin-init.py` script to easily create a new plugin
 
-
+```
+python plugin-init.py 
+```
