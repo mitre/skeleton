@@ -1,8 +1,8 @@
+import argparse
 import fileinput
 import os
 import glob
 import shutil
-
 
 SUPPORT_MESSAGE = """
 Congratulations on creating your own plugin.
@@ -30,14 +30,17 @@ def get_plugin_description():
     return input("Plugin description:")
 
 
-def get_plugin_files():
-    plugin_path = os.path.dirname(os.path.realpath(__file__))
+def get_plugin_files(plugin_name=None):
+    if plugin_name:
+        plugin_path = os.path.dirname(os.path.realpath(__file__).replace('skeleton', plugin_name.lower()))
+    else:
+        plugin_path = os.path.dirname(os.path.realpath(__file__))
     return [y for x in os.walk(plugin_path) for y in glob.glob(os.path.join(x[0], '*.*')) if 'git' not in y
             and 'plugin-init' not in y and '.jpg' not in y]
 
 
 def update_file_contents(filename, replace_text, search_text='skeleton'):
-    with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
+    with fileinput.FileInput(filename, inplace=True) as file:
         for line in file:
             print(line.replace(search_text, replace_text), end='')
 
@@ -48,18 +51,20 @@ def rewrite_files(files, name, description):
         update_file_contents(file, search_text='Skeleton', replace_text=name.capitalize())
         update_file_contents(file, search_text='skeleton', replace_text=name.lower())
         update_file_contents(file, search_text='skeleton', replace_text=name.lower())
-        update_file_contents(file, search_text='description = \'description\'', replace_text=f"description = '{description}'")
+        update_file_contents(file, search_text='description = \'description\'',
+                             replace_text=f"description = '{description}'")
 
 
 def rename_files(files, name):
     for file in files:
-        os.rename(file, file.replace('skeleton', name))
+        os.rename(file, file.replace('skeleton', name.lower()))
 
 
 def rename_plugin_directory(name):
     plugin_path = os.path.dirname(os.path.realpath(__file__))
-    os.mkdir(plugin_path.replace('skeleton', name.lower()))
-    shutil.move(plugin_path, plugin_path.replace('skeleton', name.lower()))
+    new_plugin_path = plugin_path.replace('skeleton', name.lower())
+    print(f'moving directory {plugin_path} to {new_plugin_path}')
+    shutil.copytree(plugin_path, new_plugin_path)
 
 
 if __name__ == '__main__':
@@ -69,7 +74,7 @@ if __name__ == '__main__':
     plugin_files = get_plugin_files()
 
     rewrite_files(plugin_files, plugin_name, plugin_description)
-    rename_files(plugin_files, plugin_name)
     rename_plugin_directory(plugin_name)
+    rename_files(get_plugin_files(plugin_name), plugin_name)
 
     print(SUPPORT_MESSAGE)
