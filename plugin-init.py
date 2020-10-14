@@ -30,12 +30,8 @@ def get_plugin_description():
     return input("Plugin description:")
 
 
-def get_plugin_files(plugin_name=None):
-    if plugin_name:
-        plugin_path = os.path.dirname(os.path.realpath(__file__).replace('skeleton', plugin_name.lower()))
-    else:
-        plugin_path = os.path.dirname(os.path.realpath(__file__))
-    return [y for x in os.walk(plugin_path) for y in glob.glob(os.path.join(x[0], '*.*')) if 'git' not in y
+def get_plugin_files(path):
+    return [y for x in os.walk(path) for y in glob.glob(os.path.join(x[0], '*.*')) if 'git' not in y
             and 'plugin-init' not in y and '.jpg' not in y]
 
 
@@ -65,16 +61,17 @@ def rename_plugin_directory(name):
     new_plugin_path = plugin_path.replace('skeleton', name.lower())
     print(f'moving directory {plugin_path} to {new_plugin_path}')
     shutil.copytree(plugin_path, new_plugin_path)
+    return new_plugin_path
 
 
 if __name__ == '__main__':
     plugin_name = get_plugin_name()
     plugin_description = get_plugin_description()
 
-    plugin_files = get_plugin_files()
+    plugin_path = rename_plugin_directory(plugin_name)
+    plugin_files = get_plugin_files(plugin_path)
 
     rewrite_files(plugin_files, plugin_name, plugin_description)
-    rename_plugin_directory(plugin_name)
-    rename_files(get_plugin_files(plugin_name), plugin_name)
+    rename_files(get_plugin_files(plugin_path), plugin_name)
 
     print(SUPPORT_MESSAGE)
