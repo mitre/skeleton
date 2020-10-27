@@ -21,9 +21,7 @@ def get_plugin_name():
 
 
 def is_valid_plugin_name(name):
-    if len(name.split(' ')) == 1:
-        return True
-    return False
+    return name.isidentifier()
 
 
 def get_plugin_description():
