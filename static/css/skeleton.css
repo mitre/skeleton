@@ -1,0 +1,38 @@
+
+#skeleton-section .row {
+    height: auto;
+    min-height: 350px;
+    background-color: black;
+    background-image: url('/skeleton/img/background.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+#skeleton-sidebar-wrapper {
+    flex: 15%;
+    padding: 0 1em 1em;
+    text-align: left;
+}
+
+#skeleton-sidebar-wrapper > h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+#skeleton-sidebar-wrapper > p {
+
+}
+
+#skeleton-sidebar button {
+    width: 100%;
+}
+
+#skeleton-content {
+    flex: 85%;
+}
+
+#skeleton-data {
+    width: 100%;
+    opacity: .5;
+    background-color: black;
+}
