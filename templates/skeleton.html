@@ -1,27 +1,24 @@
+
 <link rel="stylesheet" href="/skeleton/css/skeleton.css">
 <script src="/skeleton/js/skeleton.js"></script>
 
-<div id="skeleton-section" class="section-profile" style="">
-    <!--    this is the DIV for the left sidebar    -->
-    <div class="row" style="height: 375px;background-image: url('/skeleton/img/background.jpg'); background-position:right bottom;">
+<div id="skeleton-section" class="section-profile">
+    <div class="row">
         <div class="topleft duk-icon"><img onclick="removeSection('skeleton-section')" src="/gui/img/x.png"></div>
-        <div class="column section-border" style="flex:25%;text-align:left;padding:15px;">
-            <h1 style="font-size:70px;margin-top:-20px;">{{name}}</h1>
-            <p style="margin-top:-20px;">
-                {{description}}
-            </p>
-            <!-- left section -->
-            <div id="sampleDiv">
-                <button id="sampleButton" type="button" class="button-success atomic-button" style="margin-top:0;"
-                        onclick="sampleFunction()">Click me!</button>
+
+        <!-- sidebar -->
+        <div id="skeleton-sidebar-wrapper" class="column section-profile">
+            <h1>{{name}}</h1>
+            <p>{{description}}</p>
+            <div id="skeleton-sidebar">
+                <button type="button" class="button-success atomic-button" onclick="skeletonFunction()">Click me!</button>
             </div>
         </div>
 
-        <!-- right section -->
-        <div class="column" style="flex:75%">
-            <label for="dataDisplay">Output</label><br>
-            <textarea id="dataDisplay" class="column log-box" rows="10"
-            style="background-color: black; opacity: .5; width: 100%"></textarea>
+        <!-- main content -->
+        <div id="skeleton-content" class="column">
+            <label for="skeleton-data">Output</label>
+            <textarea id="skeleton-data" class="column log-box" rows="10"></textarea>
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
-function sampleFunction() {
+
+function skeletonFunction() {
     stream('Nice! The button works');
-    document.getElementById("dataDisplay").value += 'This works\n'
+    $('#skeleton-data').val($('#skeleton-data').val() + 'This works!\n')
 }
