@@ -51,10 +51,7 @@ def rewrite_files(files, name, description):
 
 def rename_files(files, name):
     for file in files:
-        if 'Skeleton' in file:
-            os.rename(file, file.replace('Skeleton', name.capitalize()))
-        else:
-            os.rename(file, file.replace('skeleton', name.lower()))
+        os.rename(file, file.replace('skeleton', name.lower()))
 
 
 def rename_plugin_directory(name):
