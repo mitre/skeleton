@@ -44,9 +44,9 @@ def rewrite_files(files, name, description):
         print(file)
         update_file_contents(file, search_text='Skeleton', replace_text=name.capitalize())
         update_file_contents(file, search_text='skeleton', replace_text=name.lower())
-        update_file_contents(file, search_text='skeleton', replace_text=name.lower())
         update_file_contents(file, search_text='description = \'description\'',
                              replace_text=f"description = '{description}'")
+        update_file_contents(file, search_text='Plugin documentation', replace_text=description)
 
 
 def rename_files(files, name):
@@ -70,6 +70,6 @@ if __name__ == '__main__':
     plugin_files = get_plugin_files(plugin_path)
 
     rewrite_files(plugin_files, plugin_name, plugin_description)
-    rename_files(get_plugin_files(plugin_path), plugin_name)
+    rename_files(plugin_files, plugin_name)
 
     print(SUPPORT_MESSAGE)
