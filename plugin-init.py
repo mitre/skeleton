@@ -30,7 +30,7 @@ def get_plugin_description():
 
 def get_plugin_files(path):
     return [y for x in os.walk(path) for y in glob.glob(os.path.join(x[0], '*.*')) if 'git' not in y
-            and 'plugin-init' not in y and '.jpg' not in y]
+            and 'plugin-init' not in y and '.jpg' not in y and '__pycache__' not in y]
 
 
 def update_file_contents(filename, replace_text, search_text='skeleton'):
