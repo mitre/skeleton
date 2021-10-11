@@ -1,5 +1,3 @@
-
-function skeletonFunction() {
-    stream('Nice! The button works');
-    $('#skeleton-data').val($('#skeleton-data').val() + 'This works!\n')
-}
+/*
+  Place any additional functions (non-Alpine specific) here.
+*/
