@@ -1,11 +1,11 @@
 import logging
 
 
-class Menupass_portService:
+class SkeletonService:
     def __init__(self, services):
         self.services = services
         self.file_svc = services.get('file_svc')
-        self.log = logging.getLogger('menupass_port_svc')
+        self.log = logging.getLogger('skeleton_svc')
 
     async def foo(self):
         return 'bar'

@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="/menupass_port/css/menupass_port.css">
-<script src="/menupass_port/js/menupass_port.js"></script>
+<link rel="stylesheet" href="/skeleton/css/skeleton.css">
+<script src="/skeleton/js/skeleton.js"></script>
 
-<div x-data="alpineMenupass_port()" x-init="initPage()">
+<div x-data="alpineSkeleton()" x-init="initPage()">
     <div>
         <h2 x-text="name"></h2>
         <p x-text="description"></p>
@@ -20,7 +20,7 @@
   Read up on the docs before you get started working on the UI: https://alpinejs.dev/
 */
 
-function alpineMenupass_port() {
+function alpineSkeleton() {
     return {
         name: '{{ name }}',
         description: '{{ description }}',
@@ -44,5 +44,5 @@ function alpineMenupass_port() {
     };
 }
 
-// # sourceURL=menupass_port.js
+// # sourceURL=skeleton.js
 </script>

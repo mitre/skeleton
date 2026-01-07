@@ -1,6 +1,6 @@
-# MITRE Caldera Plugin: Menupass_port
+# MITRE Caldera Plugin: Skeleton
 
-Menupass_port is a Caldera plugin template
+Skeleton is a Caldera plugin template
 
 Run the `plugin-init.py` script to easily create a new plugin
 

@@ -5,7 +5,7 @@ from app.service.auth_svc import for_all_public_methods, check_authorization
 
 
 @for_all_public_methods(check_authorization)
-class Menupass_portAPI:
+class SkeletonAPI:
 
     def __init__(self, services):
         self.services = services
