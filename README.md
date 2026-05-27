@@ -1,4 +1,4 @@
-# MITRE Caldera Plugin: Skeleton
+# Caldera Plugin: Skeleton
 
 Skeleton is a Caldera plugin template
 
